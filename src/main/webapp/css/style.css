@@ -1,0 +1,31 @@
+#header {
+    height: 50px;
+    width: 100%;
+    background-color: #118ab2;
+}
+
+#title {
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+}
+
+#log{
+    height: 10%;
+}
+
+#rooms{
+    background-color: #ccdbfd;
+    height: 800px;
+    width: 20%;
+}
+
+#chat{
+    float: right;
+    background-color: black;
+}
+
+.flex-container{
+    float: left;
+    flex-direction: row;
+}

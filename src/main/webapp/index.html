@@ -1,0 +1,71 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>Chat Server</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <meta name="theme-color" content="#fafafa">
+
+
+</head>
+
+
+
+
+<body>
+
+<div id="header">
+  <p id="title">CSCI2020 Chat Server Project</p>
+
+</div>
+
+<div id="room">
+  <input type="text"placeholder="Enter your room code .." id="room-code">
+  <button id="btRoom" onclick="enterRoom()">ENTER</button>
+</div>
+
+<div class="flexbox-container">
+
+  <div id="rooms">
+    <p>Rooms</p>
+
+  </div>
+
+  <div id="chat">
+    <textarea title="Chat Log" id="log" readonly
+              style="display: block; width: 100%; height: 600px; resize: none; margin: 0; padding: 0; border: 0;"></textarea>
+    <input placeholder="Enter your message.."title="Chat Input" id="input" type="text" style="display: block; width: 100%; border-width: 1px 0 1px 0;"
+           autofocus/>
+
+  </div>
+
+</div>
+
+<!-- Add your site or application content here -->
+
+
+
+
+
+<script src="js/main.js"></script>
+
+
+</body>
+
+</html>
+
+
