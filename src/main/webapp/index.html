@@ -18,45 +18,72 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
 
+  <style>
+
+    .blue-column {
+      width: 200px;
+      height: 100vh;
+      background-color: PaleTurquoise;
+      float: left;
+    }
+    .yellow-column {
+      width: 200px;
+      height: 100vh;
+      background-color: yellow;
+      float: right;
+    }
+    .footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: DeepSkyBlue;
+      height: 50px;
+      text-align: center;
+      color: white;
+      font-size: 20px;
+      line-height: 50px;
+    }
+
+    .main-content {
+      margin-left: 220px;
+      margin-right: 220px;
+    }
+  </style>
+
   <meta name="theme-color" content="#fafafa">
-
-
 </head>
 
-
-
-
 <body>
+<header style="background-color: DodgerBlue;">
+  <h1 style="margin: 0; padding: 20px; color: blue; display: inline-block;">Chat Server</h1>
+  <p style="display: inline-block; margin-left: 20px;"><a href="about.html" style="color: white;">About</a></p>
+</header>
+<div class="blue-column">
+  <nav>
+    <ul>
+      <li><a style="color: white;">List of chat rooms</a></li>
 
-<div id="header">
-  <p id="title">CSCI2020 Chat Server Project</p>
-
-</div>
-
-<div id="room">
-  <input type="text"placeholder="Enter your room code .." id="room-code">
-  <button id="btRoom" onclick="enterRoom()">ENTER</button>
-</div>
-
-<div class="flexbox-container">
-
-  <div id="rooms">
-    <p>Rooms</p>
-
+    </ul>
+  </nav>
+  <div id="room">
+    <input type="text" id="room-code">
+    <button id="btRoom" onclick="enterRoom()">Create and Join New Room</button>
   </div>
+</div>
+<div class="main-content">
+  <p style="color: black; font-size: 24px;">You are chatting in room</p>
 
-  <div id="chat">
-    <textarea title="Chat Log" id="log" readonly
-              style="display: block; width: 100%; height: 600px; resize: none; margin: 0; padding: 0; border: 0;"></textarea>
-    <input placeholder="Enter your message.."title="Chat Input" id="input" type="text" style="display: block; width: 100%; border-width: 1px 0 1px 0;"
-           autofocus/>
 
-  </div>
+  <textarea title="Chat Log" id="log" readonly
+            style="display: block; width: 100%; height: 600px; resize: none; margin: 0; padding: 0; border: 0;"></textarea>
+  <input title="Chat Input" id="input" type="text" style="display: block; width: 100%; border-width: 1px 0 1px 0;"
+         autofocus/>
+
 
 </div>
+
 
 <!-- Add your site or application content here -->
-
 
 
 
@@ -67,5 +94,3 @@
 </body>
 
 </html>
-
-

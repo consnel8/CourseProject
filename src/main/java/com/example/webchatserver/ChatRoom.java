@@ -14,6 +14,7 @@ public class ChatRoom {
 
     //each user has a unique ID associate to their ws session and their username
     private Map<String, String> users = new HashMap<String, String>() ;
+    private List<String> messages;
 
 
     // when created the chat room has at least one user
@@ -59,5 +60,13 @@ public class ChatRoom {
 
     public boolean inRoom(String userID){
         return users.containsKey(userID);
+    }
+
+    public List<String> getMessages() {
+        return messages;
+    }
+
+    public void addMessage(String message) {
+        messages.add(message);
     }
 }

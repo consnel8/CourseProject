@@ -22,6 +22,12 @@ public class ChatServer {
     private static Map<String, String> roomList = new HashMap<String, String>();
 
 
+    private void updateList(String roomID, Session session) throws IOException {
+        String existRoomString = String.format("{\"type\": \"info\", \"message\":\"%s\"}", roomID);
+        session.getBasicRemote().sendText(existRoomString);
+
+    }
+
 
     //Handles when server is opened
     @OnOpen
@@ -29,11 +35,11 @@ public class ChatServer {
         roomList.put(session.getId(), roomID);
         System.out.println("Room joined ");
 
-        session.getBasicRemote().sendText("First sample message to the client");
+
 //        accessing the roomID parameter
         System.out.println(roomID);
         session.getBasicRemote().sendText("{\"type\": \"chat\", \"message\":\" \\n Welcome to the chat room. Please state your name\"}");
-
+        //updateList(roomID, session);
     }
 
     //handles when server is closed
@@ -82,9 +88,8 @@ public class ChatServer {
 
             for(Session peer: session.getOpenSessions()){
                 //message to self
-                if(!peer.getId().equals(userID)){
+                if((!peer.getId().equals(userID))&& (roomList.get(peer.getId()).equals(roomID))){
                     peer.getBasicRemote().sendText("{\"type\": \"chat\", \"message\":\" (Server): " + message + " joined the chat room.\"}");
-
                 }else {
                     //broadcast to others
                     peer.getBasicRemote().sendText("{\"type\": \"chat\", \"message\":\" (Server): Welcome, " + message + "\"}");
