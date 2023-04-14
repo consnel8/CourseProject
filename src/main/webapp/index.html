@@ -36,7 +36,7 @@
       position: fixed;
       bottom: 0;
       width: 100%;
-      background-color: DeepSkyBlue;
+      background-color: DodgerBlue;
       height: 50px;
       text-align: center;
       color: white;
@@ -62,7 +62,7 @@
   <nav>
     <ul>
       <li><a style="color: white;">List of chat rooms</a></li>
-
+      <li><button id="chatroomBT" onclick="accessRoom('Test Room')">Test Room</button></li>
     </ul>
   </nav>
   <div id="room">
@@ -71,18 +71,22 @@
   </div>
 </div>
 <div class="main-content">
-  <p style="color: black; font-size: 24px;">You are chatting in room</p>
+  <p id="chatroomTitle" style="color: black; font-size: 24px;">You are chatting in room </p>
 
 
   <textarea title="Chat Log" id="log" readonly
             style="display: block; width: 100%; height: 600px; resize: none; margin: 0; padding: 0; border: 0;"></textarea>
   <input title="Chat Input" id="input" type="text" style="display: block; width: 100%; border-width: 1px 0 1px 0;"
          autofocus/>
+  <button id="downlaodBT" onclick="downloadChat()">Download Chat</button>
+  <button id="deletChat" onclick="removeChat()">Leave Chatroom</button>
 
 
 </div>
 
-
+<div class="footer">
+  Final Project by: Nirujan Velvarathan, Connor Snelgrove, Carlos Falconett
+</div>
 <!-- Add your site or application content here -->
 
 
