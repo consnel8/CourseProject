@@ -2,7 +2,7 @@
 April 14th 2023\
 Connor Snelgrove 100826574\
 Carlos Falconett 100855476\
-Nirujan Velvarathan 100706828\
+Nirujan Velvarathan 100706828
 
 ## Scope of Project
 
