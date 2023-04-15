@@ -90,6 +90,11 @@ function login() {
 
 }
 
+//Code to register new users into the system
+function register() {
+
+}
+
 function accessRoom(title){
     //Get the p tag so you can add the new title
     let p = document.getElementById("chatroomTitle");
