@@ -54,7 +54,7 @@ function timestamp() {
 //This function download the entirety of the chat and saves it locally on a text file.
 function downloadChat() {
 
-
+    //Code used to create the text file that will have the chat log.
     let log = document.getElementById("log");
     let file = new Blob([log.innerHTML], {type: 'text/plain'})
     let a = document.createElement("a");
