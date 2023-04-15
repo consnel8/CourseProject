@@ -24,7 +24,8 @@ public class ChatServer {
     // contains a static List of ChatRoom used to control the existing rooms and their users
     private Map<String, String> usernames = new HashMap<String, String>();
     private static Map<String, String> roomList = new HashMap<String, String>();
-
+    
+    //this saves the chats the users have into our database
     private void saveChat(String roomID, String message) {
         try {
             File file = new File(roomID + ".txt");
