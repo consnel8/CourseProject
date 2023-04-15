@@ -12,3 +12,6 @@ Chat server using websockets. Multiple clients can connect to the server. User c
 Users can clone the chat server on to their machine. Once downloaded they can open up the folder the chat server is in through a code editor. Users can start the server by running a glassfish server with the given configurations. Once the website has loaded, users can see UI elements used to chat, create rooms, etc. The first message the user sends will set their name and successive messages will be sent as texts to members of the current room. 
 
 ## Other resources
+
+1. Tutorial Points: Used the information in the website to add the functionality that allowed us to download the chat log locally.
+      - https://www.tutorialspoint.com/how-to-create-and-save-text-file-in-javascript
