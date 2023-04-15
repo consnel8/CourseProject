@@ -1,5 +1,5 @@
 let ws;
-
+let user;
 function newRoom(){
     // calling the ChatServlet to retrieve a new room ID
     let callURL= "http://localhost:8080/CourseProject-1.0-SNAPSHOT/chat-servlet";
@@ -37,6 +37,10 @@ document.getElementById("input").addEventListener("keyup", function (event) {
         let request = {"type":"chat", "msg":event.target.value};
         ws.send(JSON.stringify(request));
         event.target.value = "";
+
+        let log = document.getElementById("log");
+        log.appendChild(document.createTextNode(`[${user}]: ${event.target.value}`));
+
     }
 });
 //"[" + timestamp() + "] " +
@@ -45,4 +49,46 @@ function timestamp() {
     var d = new Date(), minutes = d.getMinutes();
     if (minutes < 10) minutes = '0' + minutes;
     return d.getHours() + ':' + minutes;
+}
+
+//This function download the entirety of the chat and saves it locally on a text file.
+function downloadChat() {
+
+}
+
+//This function removes the user from the chatroom as well as remove it from the list.
+function removeChat() {
+    if (confirm("Are you sure you want to leave the Chatroom?")) {
+        //Will remove the chatroom from the list on the client
+        //Will also remove the user from the chatroom.
+    } else {
+        //Will just cancell the process, nothing changes
+    }
+
+}
+
+function accessRoom(title){
+    //Get the p tag so you can add the new title
+    let p = document.getElementById("chatroomTitle");
+    let node = document.createTextNode(title);
+    p.appendChild(node);
+
+    //Add all the chatroom Text
+    let log = document.getElementById("log");
+    log.appendChild(document.createTextNode("Chatroom 'Test Room' has been created!"));
+    log.appendChild(document.createTextNode("\n"));
+    log.appendChild(document.createTextNode("[Carlos]: H"));
+    log.appendChild(document.createTextNode("\n"));
+    log.appendChild(document.createTextNode("[Carlos]: E"));
+    log.appendChild(document.createTextNode("\n"));
+    log.appendChild(document.createTextNode("[Carlos]: L"));
+    log.appendChild(document.createTextNode("\n"));
+    log.appendChild(document.createTextNode("[Carlos]: L"));
+    log.appendChild(document.createTextNode("\n"));
+    log.appendChild(document.createTextNode("[Carlos]: O"));
+    log.appendChild(document.createTextNode("\n"));
+    log.appendChild(document.createTextNode("Nirujan has entered the chat!"));
+    log.appendChild(document.createTextNode("\n"));
+    log.appendChild(document.createTextNode("[Nirujan]: Hey"));
+
 }
