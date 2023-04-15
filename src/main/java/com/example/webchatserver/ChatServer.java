@@ -10,6 +10,10 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
 
 /**
  * This class represents a web socket server, a new connection is created, and it receives a roomID as a parameter
@@ -21,6 +25,16 @@ public class ChatServer {
     private Map<String, String> usernames = new HashMap<String, String>();
     private static Map<String, String> roomList = new HashMap<String, String>();
 
+    private void saveChat(String roomID, String message) {
+        try {
+            File file = new File(roomID + ".txt");
+            FileWriter writer = new FileWriter(file, true);
+            writer.write(message + "\n");
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     private void updateList(String roomID, Session session) throws IOException {
         String existRoomString = String.format("{\"type\": \"info\", \"message\":\"%s\"}", roomID);
@@ -39,7 +53,7 @@ public class ChatServer {
 //        accessing the roomID parameter
         System.out.println(roomID);
         session.getBasicRemote().sendText("{\"type\": \"chat\", \"message\":\" \\n Welcome to the chat room. Please state your name\"}");
-        //updateList(roomID, session);
+        updateList(roomID, session);
     }
 
     //handles when server is closed
@@ -61,14 +75,15 @@ public class ChatServer {
     }
     //handles when message is sent
     @OnMessage
-    public void handleMessage(String comm, Session session, @PathParam("room") String room) throws IOException, EncodeException {
+    public void handleMessage(String comm, Session session, @PathParam("roomID") String roomID) throws IOException, EncodeException {
 //        example getting unique userID that sent this message
 
         String userID = session.getId();
-        String roomID = roomList.get(userID); // my room
         JSONObject jsonmsg = new JSONObject(comm);
         String type = (String) jsonmsg.get("type");
         String message = (String) jsonmsg.get("message");
+
+        saveChat(roomID, message);
 
         //Check if user is part of users
 
