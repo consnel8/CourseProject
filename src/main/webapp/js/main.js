@@ -85,6 +85,11 @@ function removeChat() {
 
 }
 
+//Code to validate for if username and password are correct.
+function login() {
+
+}
+
 function accessRoom(title){
     //Get the p tag so you can add the new title
     let p = document.getElementById("chatroomTitle");

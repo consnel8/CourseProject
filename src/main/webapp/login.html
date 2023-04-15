@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Spam Detector - About</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+
+    .blue-column {
+      width: 200px;
+      height: 100vh;
+      background-color: PaleTurquoise;
+      float: left;
+    }
+    .yellow-column {
+      width: 200px;
+      height: 100vh;
+      background-color: yellow;
+      float: right;
+    }
+    .footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: DodgerBlue;
+      height: 50px;
+      text-align: center;
+      color: white;
+      font-size: 20px;
+      line-height: 50px;
+    }
+
+    .main-content {
+      margin-left: 220px;
+      margin-right: 220px;
+    }
+  </style>
+</head>
+<body>
+<header style="background-color: DodgerBlue;">
+  <h1 style="margin: 0; padding: 20px; color: blue;">Group Members</h1>
+</header>
+<div class="blue-column">
+  <nav>
+    <ul>
+      <li><a class="active" href="index.html" style="color: white;">Main Page</a></li>
+      <li><a href="about.html"style="color: white;">About</a></li>
+    </ul>
+  </nav>
+</div>
+<div class="main-content">
+  <div style="display: block">
+    <input type="text" id="username" style="margin: 10px;" placeholder="John">
+    <label for="username">Username</label>
+  </div>
+  <div style="display: block">
+    <input type="password" id="pword" style="margin: 10px;" placeholder="******">
+    <label for="pword">Password</label>
+  </div>
+  <button type="submit" style="display: block" onclick="login()">Login</button>
+</div>
+<div class="footer">
+  Final Project by: Nirujan Velvarathan, Connor Snelgrove, Carlos Falconett
+</div>
+</body>
+</html>
