@@ -36,7 +36,8 @@ public class ChatServer {
             e.printStackTrace();
         }
     }
-
+    
+    //updates the room list
     private void updateList(String roomID, Session session) throws IOException {
         String existRoomString = String.format("{\"type\": \"info\", \"message\":\"%s\"}", roomID);
         session.getBasicRemote().sendText(existRoomString);
