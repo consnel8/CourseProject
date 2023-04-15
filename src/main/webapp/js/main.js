@@ -32,8 +32,8 @@ function enterRoom(){
 
         }
 }
-document.getElementById("input").addEventListener("keyup", function (event) {
-    if (event.keyCode === 13) {
+document.getElementById("input").addEventListener("keydown", function (event) {
+    if (event.key === 'Enter') {
         let request = {"type":"chat", "msg":event.target.value};
         ws.send(JSON.stringify(request));
         event.target.value = "";
@@ -54,15 +54,33 @@ function timestamp() {
 //This function download the entirety of the chat and saves it locally on a text file.
 function downloadChat() {
 
+
+    let log = document.getElementById("log");
+    let file = new Blob([log.innerHTML], {type: 'text/plain'})
+    let a = document.createElement("a");
+    a.download = "log-chatroomname.txt";
+    a.href = window.URL.createObjectURL(file);
+    a.click();
 }
 
 //This function removes the user from the chatroom as well as remove it from the list.
 function removeChat() {
     if (confirm("Are you sure you want to leave the Chatroom?")) {
         //Will remove the chatroom from the list on the client
-        //Will also remove the user from the chatroom.
+        let bt = document.getElementById("chatroomBT");
+        bt.remove();
+
+        //Remove the name of the chatroom from the title message
+        let p = document.getElementById("chatroomTitle");
+        p.innerHTML = "You are chatting in room ";
+
+        //Cleans up the content within the chat log
+        let log = document.getElementById("log");
+        log.innerHTML = "";
+
+
     } else {
-        //Will just cancell the process, nothing changes
+        //Will just cancel the process, nothing changes
     }
 
 }
@@ -73,7 +91,7 @@ function accessRoom(title){
     let node = document.createTextNode(title);
     p.appendChild(node);
 
-    //Add all the chatroom Text
+    //Add all the chatroom Text for testing purposes
     let log = document.getElementById("log");
     log.appendChild(document.createTextNode("Chatroom 'Test Room' has been created!"));
     log.appendChild(document.createTextNode("\n"));
