@@ -9,7 +9,8 @@ import java.io.IOException;
 
 
 public class Login {
-
+    
+    //create the file and maps for the logins
     private File directory = null;
     Map<String, String> logins = new TreeMap<>();
     URL loginURL = this.getClass().getClassLoader().getResource("/data/logins");
@@ -21,7 +22,8 @@ public class Login {
     Login(File dir) throws FileNotFoundException {
         this.directory = dir;
     }
-
+    
+    //goes through the database and populates the map with logins
     public void populateLogins() throws FileNotFoundException {
 
         //create map of logins from database
